@@ -1,0 +1,248 @@
+html { scroll-behavior: smooth; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif; /* LETRA MODERNA */
+  background: #050005;
+  color: #fff;
+}
+
+/* MENÚ FIJO GLASS */
+#header {
+  position: fixed; top: 0; width: 100%;
+  background: rgba(10, 0, 10, 0.8);
+  backdrop-filter: blur(10px); /* EFECTO VIDRIO */
+  padding: 20px 60px; z-index: 1000;
+  border-bottom: 2px solid #9b00ff;
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+#logo h1 a {
+  font-family: 'Bebas Neue', sans-serif; /* LETRA TITULO GORDA */
+  color: #fff; text-decoration: none; font-size: 32px; letter-spacing: 3px;
+}
+#logo span { color: #ff0044; } /* ROJO */
+
+#menu ul { list-style: none; display: flex; gap: 35px; }
+#menu a {
+  color: #ddd; text-decoration: none; font-size: 16px; font-weight: 700;
+  cursor: pointer; transition: 0.3s; text-transform: uppercase;
+}
+#menu a:hover { color: #9b00ff; text-shadow: 0 0 8px #9b00ff; }
+
+/* SECCIONES */
+section {
+  min-height: 100vh; padding: 160px 60px 80px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+}
+
+#inicio {
+  background: linear-gradient(135deg, rgba(155,0,255,0.4), rgba(255,0,68,0.4)), url('taller/header.jpeg') center/cover fixed;
+}
+#servicios { background: #0a000a; }
+#catalogos { background: #050005; }
+#nosotros { background: #0a000a; }
+#contacto { background: #050005; }
+
+h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 70px;
+  background: linear-gradient(90deg, #9b00ff, #ff0044); /* DEGRADADO VIOLETA A ROJO */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+  letter-spacing: 4px;
+
+}
+
+p { font-size: 20px; max-width: 900px; line-height: 1.8; font-weight: 300; }
+
+/* CARDS MODERNAS */
+.cards { display: flex; gap: 30px; flex-wrap: wrap; justify-content: center; margin-top: 40px; }
+.card, .card-catalogo {
+  background: rgba(155, 0, 255, 0.1);
+  border: 1px solid #9b00ff;
+  border-radius: 15px; padding: 40px 30px;
+  width: 300px; transition: 0.4s;
+  box-shadow: 0 0 20px rgba(155,0,255,0.2);
+}
+.card:hover, .card-catalogo:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 40px rgba(255,0,68,0.4);
+  border-color: #ff0044;
+}
+.card h3, .card-catalogo h3 { color: #ff0044; font-size: 24px; margin-bottom: 15px; }
+
+/* BOTONES */
+.btn-rojo, .btn-violeta {
+  padding: 16px 45px; text-decoration: none; border-radius: 50px;
+  font-weight: 900; margin-top: 25px; display: inline-block; font-size: 16px;
+  transition: 0.3s; text-transform: uppercase; letter-spacing: 1px;
+}
+.btn-rojo {
+  background: linear-gradient(90deg, #ff0044, #9b00ff);
+  color: #fff; box-shadow: 0 0 20px rgba(255,0,68,0.5);
+}
+.btn-violeta {
+  background: transparent;
+  color: #9b00ff; border: 2px solid #9b00ff;
+}
+.btn-rojo:hover, .btn-violeta:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px rgba(155,0,255,0.8);
+}
+
+.card-catalogo img {
+  width: 100%;         /* que ocupe todo el ancho de la card */
+  max-width: 100%;     /* pero que no se pase */
+  height: 220px;       /* alto fijo para que todas midan igual */
+  object-fit: cover;   /* recorta la foto para que no se deforme */
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 2px solid #9b00ff;
+}
+
+/* ===== GALERÍA ===== */
+#galeria {
+  padding-top: 160px; /* para que no tape el header fijo */
+}
+
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 40px auto 0 auto;
+  padding: 0 20px;
+}
+
+.galeria-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 15px;
+  border: 2px solid #9b00ff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.galeria-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px #ff0044;
+  border-color: #ff0044;
+}
+
+/* ===== NOSOTROS ===== */
+#nosotros {
+  background: linear-gradient(180deg, #050005 0%, #0a0010 100%);
+  padding: 120px 60px;
+}
+
+#nosotros h2 {
+  font-family: 'Bebas Neue';
+  font-size: 60px;
+  text-align: center;
+  background: linear-gradient(90deg, #00ffd5, #9b00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#nosotros .subtitulo {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 50px;
+}
+
+.nosotros-contenido {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto 60px auto;
+  align-items: center;
+}
+
+.nosotros-img img {
+  width: 100%;
+  border-radius: 20px;
+  border: 3px solid #9b00ff;
+  box-shadow: 0 0 30px rgba(155,0,255,0.3);
+}
+
+.nosotros-texto h3 {
+  color: #ff00aa;
+  font-family: 'Bebas Neue';
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.nosotros-texto p {
+  color: #ddd;
+  line-height: 1.7;
+}
+
+/* CAJITAS DE VALORES */
+.valores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.valor-card {
+  background: rgba(155, 0, 255, 0.05);
+  border: 2px solid #00ffd5;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.3s;
+}
+.valor-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0,255,213,0.4);
+}
+.valor-card span {
+  font-size: 30px;
+}
+.valor-card h4 {
+  color: #00ffd5;
+  font-family: 'Bebas Neue';
+  font-size: 24px;
+  margin: 10px 0;
+}
+.valor-card p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* ===== FOOTER ARREGLADO ===== */
+footer {
+  background: #050005;
+  color: #ccc;
+  text-align: center;
+  padding: 50px 20px; /* más padding arriba y abajo */
+  border-top: 2px solid #9b00ff;
+  font-size: 13px;
+}
+
+footer p {
+  margin: 0 auto; /* centra el bloque */
+  max-width: 1000px; /* para que no se estire tanto */
+  line-height: 1.6; /* espacio entre líneas si se parte */
+  font-family: 'Poppins', sans-serif;
+  font-weight: 200;
+  letter-spacing: 0.5px;
+}
+
+/* ===== ARREGLAR EL LOGO DEL HEADER ===== */
+header a, .logo a {
+  text-decoration: none; /* saca el subrayado */
+  color: inherit; /* respeta tus colores violeta/rojo */
+}
+
+header a:hover {
+  text-decoration: none; /* que no aparezca al pasar el mouse */
+}
