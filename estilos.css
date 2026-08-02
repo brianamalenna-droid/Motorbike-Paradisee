@@ -334,3 +334,39 @@ footer p {
     width: 80%;
   }
 }
+
+/* ===== FIX PARA QUE NO TAPE EL HEADER EN CELU ===== */
+
+/* 1. Arreglar el corte del inicio */
+#inicio {
+  padding-top: 220px; /* Mas padding arriba para que no tape el header */
+}
+
+@media (max-width: 900px) {
+  #inicio {
+    padding-top: 280px; /* En celu el header es mas alto porque baja el menu */
+  }
+
+  section {
+    padding-top: 160px; /* Las demas secciones con menos */
+  }
+}
+
+/* 2. Arreglar que el menu quede centrado y no se corte */
+#menu {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#menu ul {
+  justify-content: center;
+  align-items: center;
+}
+
+/* 3. Que el boton no se pegue a los bordes */
+.btn-rojo, .btn-violeta {
+  max-width: 90%;
+  margin: 25px auto 0 auto; /* Centrado */
+  display: block; /* Para que respete el margin auto */
+}
