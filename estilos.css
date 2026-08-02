@@ -15,7 +15,8 @@ body {
   backdrop-filter: blur(10px); /* EFECTO VIDRIO */
   padding: 20px 60px; z-index: 1000;
   border-bottom: 2px solid #9b00ff;
-  display: flex; justify-content: space-between; align-items: center;
+  display: flex; justify-content: space-between; align-items: center; /* YA TENIA FLEX */
+  flex-wrap: wrap; /* AGREGADO PARA CELU */
 }
 
 #logo h1 a {
@@ -24,7 +25,7 @@ body {
 }
 #logo span { color: #ff0044; } /* ROJO */
 
-#menu ul { list-style: none; display: flex; gap: 35px; }
+#menu ul { list-style: none; display: flex; gap: 35px; flex-wrap: wrap; /* AGREGADO */ justify-content: center; /* AGREGADO */}
 #menu a {
   color: #ddd; text-decoration: none; font-size: 16px; font-weight: 700;
   cursor: pointer; transition: 0.3s; text-transform: uppercase;
@@ -53,7 +54,6 @@ h2 {
   -webkit-text-fill-color: transparent;
   margin-bottom: 40px;
   letter-spacing: 4px;
-
 }
 
 p { font-size: 20px; max-width: 900px; line-height: 1.8; font-weight: 300; }
@@ -94,10 +94,10 @@ p { font-size: 20px; max-width: 900px; line-height: 1.8; font-weight: 300; }
 }
 
 .card-catalogo img {
-  width: 100%;         /* que ocupe todo el ancho de la card */
-  max-width: 100%;     /* pero que no se pase */
-  height: 220px;       /* alto fijo para que todas midan igual */
-  object-fit: cover;   /* recorta la foto para que no se deforme */
+  width: 100%;
+  max-width: 100%;
+  height: 220px;
+  object-fit: cover;
   border-radius: 10px;
   margin-bottom: 20px;
   border: 2px solid #9b00ff;
@@ -105,7 +105,7 @@ p { font-size: 20px; max-width: 900px; line-height: 1.8; font-weight: 300; }
 
 /* ===== GALERÍA ===== */
 #galeria {
-  padding-top: 160px; /* para que no tape el header fijo */
+  padding-top: 160px;
 }
 
 .galeria-grid {
@@ -223,26 +223,114 @@ footer {
   background: #050005;
   color: #ccc;
   text-align: center;
-  padding: 50px 20px; /* más padding arriba y abajo */
+  padding: 50px 20px;
   border-top: 2px solid #9b00ff;
   font-size: 13px;
 }
 
 footer p {
-  margin: 0 auto; /* centra el bloque */
-  max-width: 1000px; /* para que no se estire tanto */
-  line-height: 1.6; /* espacio entre líneas si se parte */
+  margin: 0 auto;
+  max-width: 1000px;
+  line-height: 1.6;
   font-family: 'Poppins', sans-serif;
   font-weight: 200;
   letter-spacing: 0.5px;
 }
 
-/* ===== ARREGLAR EL LOGO DEL HEADER ===== */
-header a, .logo a {
-  text-decoration: none; /* saca el subrayado */
-  color: inherit; /* respeta tus colores violeta/rojo */
+
+
+
+@media (max-width: 900px) {
+  #header {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  #menu ul {
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #logo h1 a {
+    font-size: 24px;
+  }
 }
 
-header a:hover {
-  text-decoration: none; /* que no aparezca al pasar el mouse */
+
+@media (max-width: 768px) {
+  section {
+    padding: 140px 20px 60px;
+    min-height: auto;
+  }
+
+  h2 {
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card, .card-catalogo {
+    width: 90%;
+    max-width: 400px;
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .galeria-grid {
+    grid-template-columns: 1fr; /* 1 foto por fila */
+    gap: 20px;
+    padding: 0 15px;
+  }
+
+  .galeria-grid img {
+    height: 200px; /* Mas chicas */
+  }
+}
+
+
+@media (max-width: 900px) {
+  #nosotros {
+    padding: 100px 20px;
+  }
+
+  .nosotros-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .nosotros-img img {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .valores {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .btn-rojo, .btn-violeta {
+    padding: 12px 30px;
+    font-size: 14px;
+    width: 80%;
+  }
 }
