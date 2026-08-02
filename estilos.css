@@ -218,7 +218,6 @@ p { font-size: 20px; max-width: 900px; line-height: 1.8; font-weight: 300; }
   color: #ccc;
 }
 
-/* ===== FOOTER ARREGLADO ===== */
 footer {
   background: #050005;
   color: #ccc;
@@ -240,133 +239,101 @@ footer p {
 
 
 
+
+
+/* Arreglar que el contenido no quede debajo del header */
+body {
+  padding-top: 100px; /* Le da aire arriba a toda la pagina */
+}
+
 @media (max-width: 900px) {
+  body {
+    padding-top: 160px; /* En celu el header es mas alto */
+  }
+
   #header {
     flex-direction: column;
     padding: 15px 20px;
-    gap: 15px;
+    gap: 10px;
   }
 
   #menu ul {
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  #logo h1 a {
-    font-size: 24px;
-  }
-}
-
-
-@media (max-width: 768px) {
-  section {
-    padding: 140px 20px 60px;
-    min-height: auto;
+    gap: 12px;
+    font-size: 14px;
   }
 
   h2 {
-    font-size: 40px;
-    letter-spacing: 2px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 768px) {
-  .cards {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .card, .card-catalogo {
-    width: 90%;
-    max-width: 400px;
-    padding: 30px 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .galeria-grid {
-    grid-template-columns: 1fr; /* 1 foto por fila */
-    gap: 20px;
-    padding: 0 15px;
-  }
-
-  .galeria-grid img {
-    height: 200px; /* Mas chicas */
-  }
-}
-
-
-@media (max-width: 900px) {
-  #nosotros {
-    padding: 100px 20px;
-  }
-
-  .nosotros-contenido {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .nosotros-img img {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-}
-
-
-@media (max-width: 768px) {
-  .valores {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .btn-rojo, .btn-violeta {
-    padding: 12px 30px;
-    font-size: 14px;
-    width: 80%;
-  }
-}
-
-/* ===== FIX PARA QUE NO TAPE EL HEADER EN CELU ===== */
-
-/* 1. Arreglar el corte del inicio */
-#inicio {
-  padding-top: 220px; /* Mas padding arriba para que no tape el header */
-}
-
-@media (max-width: 900px) {
-  #inicio {
-    padding-top: 280px; /* En celu el header es mas alto porque baja el menu */
+    font-size: 36px;
   }
 
   section {
-    padding-top: 160px; /* Las demas secciones con menos */
+    padding: 80px 20px; /* Bajamos el padding porque ya usamos body padding-top */
+    min-height: auto;
+  }
+
+  /* Forzar que las cards bajen */
+  .cards {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .card, .card-catalogo {
+    width: 90% !important;
+    max-width: 350px;
+  }
+
+  /* Galeria 1 columna */
+  .galeria-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Nosotros en columna */
+  .nosotros-contenido {
+    display: flex !important;
+    flex-direction: column;
   }
 }
 
-/* 2. Arreglar que el menu quede centrado y no se corte */
-#menu {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+
+
+#inicio {
+  background-attachment: scroll;
+
+}
+
+
+@media (min-width: 901px) {
+  #inicio {
+    background-attachment: fixed;
+  }
 }
 
 #menu ul {
-  justify-content: center;
-  align-items: center;
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* 3. Que el boton no se pegue a los bordes */
-.btn-rojo, .btn-violeta {
-  max-width: 90%;
-  margin: 25px auto 0 auto; /* Centrado */
-  display: block; /* Para que respete el margin auto */
+#menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+#menu a:hover {
+  color: #9b00ff;
+}
+@media (max-width: 900px) {
+  #menu ul {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  #menu a {
+    font-size: 14px;
+  }
 }
